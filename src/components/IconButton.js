@@ -3,11 +3,15 @@ import {TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const icon_color = '#586069';
-const icon_size = 15;
+const icon_size = 25;
 
-const IconButton = ({icon, onPress, data}) => {
+const IconButton = ({icon, onPress, data, label}) => {
   return (
     <TouchableOpacity
+      accessible={true}
+      accessibilityLabel={label}
+      accessibilityTraits={'button'}
+      accessibilityComponentType={'button'}
       onPress={() => {
         onPress(data.name);
       }}>
@@ -23,8 +27,11 @@ const IconButton = ({icon, onPress, data}) => {
 
 const styles = StyleSheet.create({
   icon: {
-    paddingLeft: 5,
-    paddingRight: 5,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  name: {
+    fontSize: 16,
   },
 });
 
